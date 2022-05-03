@@ -1,0 +1,75 @@
+@import "../fonts/inter/inter.css";
+
+$font-family-base: "Inter var", sans-serif;
+$theme-color: #00ab55;
+$theme-color-darker: #02773c;
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
+* {
+    user-select: none;
+}
+
+.text-theme {
+    color: $theme-color;
+}
+
+.text-theme-darker {
+    color: $theme-color-darker;
+    transition: filter 0.25s ease-in-out;
+}
+
+.text-theme-darker:focus,
+.text-theme-darker:active,
+.text-theme-darker:hover {
+    color: $theme-color-darker;
+    filter: brightness(60%);
+}
+
+.btn-theme {
+    background-color: $theme-color;
+    color: white;
+    font-weight: 500;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+
+.btn-theme:hover,
+.btn-theme:active,
+.btn-theme:focus {
+    background-color: $theme-color-darker;
+    color: white;
+}
+
+.btn-outline-theme {
+    background-color: white;
+    color: $theme-color;
+    border: 1px solid $theme-color;
+    font-weight: 500;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+
+.btn-outline-theme:hover,
+.btn-outline-theme:active,
+.btn-outline-theme:focus {
+    background-color: $theme-color-darker;
+    color: white;
+}
+
+.bg-gradient-kindsteel {
+    background: #e9defa;
+    background: -webkit-linear-gradient(
+        to right,
+        rgba(233, 222, 250, 0.5),
+        rgba(251, 252, 219, 0.5)
+    );
+    background: linear-gradient(
+        to right,
+        rgba(233, 222, 250, 0.5),
+        rgba(251, 252, 219, 0.5)
+    );
+}

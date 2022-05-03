@@ -11,10 +11,10 @@
 
 -   Authentication
 
-    -   [ ] Sign Up
-    -   [ ] Sign In
-    -   [ ] Reset Password
-    -   [ ] Email Verification
+    -   [x] Sign Up
+    -   [x] Sign In
+    -   [x] Reset Password
+    -   [x] Email Verification
     -   [ ] Others (Please add to the checklist)
 
 -   Users
@@ -74,3 +74,20 @@
 -   Currency in MYR; prefixed with RM
 -   Product have their own category
 -   New category cannot be created without admin previleges
+
+## DB Sketch (\* NULLABLE)
+
+### Users
+
+-   id (reused as buyer_id)
+-   name
+-   email
+-   password
+-   address
+-   phone
+-   type: [0: seller, 1: buyer, 2: both, 3: admin]
+-   seller_id \*
+-   created_at
+-   updated_at
+
+### Products
