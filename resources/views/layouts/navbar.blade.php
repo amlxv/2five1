@@ -13,23 +13,31 @@
         </a>
 
         {{-- Collapsible Wrapper --}}
-        <div class="collapse navbar-collapse" id="navbarNavItems">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Marketplace</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Become a Seller</a>
-                </li>
-            </ul>
-        </div>
+        @auth
+            <div class="collapse navbar-collapse" id="navbarNavItems">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Become a Seller</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">My Account</a>
+                    </li>
+
+                </ul>
+            </div>
+        @endauth
 
         {{-- Right Side --}}
         <div class="d-flex align-items-center">
 
             @guest
-                <a href="/register" class="btn btn-outline-theme me-2 px-4">Get Started!</a>
-                <a href="/login" class="btn btn-outline-light text-body px-4"><i
+                <a href="{{ route('register') }}" class="btn btn-outline-theme me-2 px-4">Get Started!</a>
+                <a href="{{ route('login') }}" class="btn btn-outline-light text-body px-4"><i
                         class="fa-solid fa-arrow-right-to-bracket me-2"></i>Sign In</a>
             @endguest
 
@@ -37,10 +45,7 @@
 
                 Hi, {{ Auth::user()->name }}!
 
-                <form action="/logout" method="post">
-                    @csrf
-                    <button class="btn" type="submit">Logout</button>
-                </form>
+
             @endauth
 
         </div>

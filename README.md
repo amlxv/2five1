@@ -85,9 +85,13 @@
 -   password
 -   address
 -   phone
--   type: [0: seller, 1: buyer, 2: both, 3: admin]
+-   type: [buyer, seller, both, default: buyer]
+-   role: [user, admin, default: user]
 -   seller_id \*
 -   created_at
 -   updated_at
+
+-   shop_id
+-   shop_name
 
 ### Products

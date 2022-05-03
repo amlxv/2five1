@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="px-4 py-2">
-        <form action="/register" method="post">
+        <form action="{{ route('register') }}" method="post">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-lg-5 mb-3 p-3">
@@ -60,7 +60,7 @@
                         <p>
                             <small class="text-muted">
                                 Already have an account?
-                                <a href="/login" class="text-theme-darker">
+                                <a href="{{ route('login') }}" class="text-theme-darker">
                                     Login now!
                                 </a>
                             </small>

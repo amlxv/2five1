@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="p-4 mt-3 mt-md-5">
-        <form action="/reset-password" method="post">
+        <form action="{{ route('reset-password') }}" method="post">
             @csrf
 
             <input type="hidden" name="token" value="{{ request()->route('token') }}">

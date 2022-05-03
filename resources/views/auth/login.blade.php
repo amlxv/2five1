@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="p-4 mt-3 mt-md-5">
-        <form action="/login" method="post">
+        <form action="{{ route('login') }}" method="post">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-lg-5 mb-3 p-3">
@@ -43,8 +43,6 @@
                         </div>
                     @endif
 
-
-
                     @if (session('status'))
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             {{ session('status') }}
@@ -60,7 +58,7 @@
                         <p>
                             <small class="text-muted">
                                 Don't have an account?
-                                <a href="/register" class="text-theme-darker">
+                                <a href="{{ route('register') }}" class="text-theme-darker">
                                     Register now!
                                 </a>
                             </small>

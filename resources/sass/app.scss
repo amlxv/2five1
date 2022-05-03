@@ -3,15 +3,16 @@
 $font-family-base: "Inter var", sans-serif;
 $theme-color: #00ab55;
 $theme-color-darker: #02773c;
+$enable-negative-margins: true;
 
 @import "~bootstrap/scss/bootstrap";
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 
-* {
-    user-select: none;
-}
+// * {
+//     user-select: none;
+// }
 
 .text-theme {
     color: $theme-color;
