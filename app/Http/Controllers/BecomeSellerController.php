@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class BecomeSellerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //   
+        $user = User::find(Auth::user()->id);
+        return view('settings.become-seller', compact('user'));
     }
 
     /**
@@ -34,9 +35,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, User $user)
+    public function store(Request $request)
     {
-        // 
+        //
     }
 
     /**
@@ -47,7 +48,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        // 
+        //
     }
 
     /**
@@ -58,7 +59,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        // 
+        //
     }
 
     /**
@@ -70,7 +71,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //   
+        //
     }
 
     /**

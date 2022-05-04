@@ -26,8 +26,8 @@
 
 -   Buyer Dashboard
 
-    -   [ ] Manage Profile
-    -   [ ] Manage Delivery Address
+    -   [x] Manage Profile
+    -   [x] Manage Delivery Address
     -   [ ] Purchase History
     -   [ ] Others (Please add to the checklist)
 
@@ -79,19 +79,18 @@
 
 ### Users
 
--   id (reused as buyer_id)
+-   id
 -   name
 -   email
 -   password
 -   address
 -   phone
+-   avatar
 -   type: [buyer, seller, both, default: buyer]
 -   role: [user, admin, default: user]
--   seller_id \*
--   created_at
--   updated_at
-
--   shop_id
 -   shop_name
+-   shop_avatar
+-   updated_at
+-   created_at
 
 ### Products

@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BecomeSellerController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,6 @@ Route::get('/', function () {
     return view('marketplace');
 });
 
-Route::resource('/profile', UserController::class)->middleware('auth');
+Route::resource('/profile', ProfileController::class)->middleware('auth');
+
+Route::resource('/become-seller', BecomeSellerController::class)->middleware('auth');

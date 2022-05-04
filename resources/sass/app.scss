@@ -74,3 +74,47 @@ $enable-negative-margins: true;
         rgba(251, 252, 219, 0.5)
     );
 }
+
+// Customize the Dropdown
+
+.dropdown .dropdown-menu {
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.dropdown .dropdown-menu li {
+    border-radius: 5px;
+}
+
+.dropdown .dropdown-menu li:hover,
+.dropdown .dropdown-menu li:focus,
+.dropdown .dropdown-menu li:active {
+    background-color: $theme-color;
+    color: white;
+    border-radius: 5px;
+}
+
+.dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: $theme-color;
+    color: white;
+    border-radius: 5px;
+}
+
+.dropdown .dropdown-menu .dropdown-item:focus,
+.dropdown .dropdown-menu .dropdown-item:active {
+    background-color: $theme-color-darker;
+    color: white;
+    border-radius: 5px;
+}
+
+.dropdown .dropdown-menu .dropdown-delete:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.dropdown .dropdown-menu .dropdown-delete:focus,
+.dropdown .dropdown-menu .dropdown-delete:active {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 5px;
+}

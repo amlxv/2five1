@@ -20599,3 +20599,45 @@ readers do not read off random characters that represent icons */
   background: linear-gradient(to right, rgba(233, 222, 250, 0.5), rgba(251, 252, 219, 0.5));
 }
 
+.dropdown .dropdown-menu {
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.dropdown .dropdown-menu li {
+  border-radius: 5px;
+}
+
+.dropdown .dropdown-menu li:hover,
+.dropdown .dropdown-menu li:focus,
+.dropdown .dropdown-menu li:active {
+  background-color: #00ab55;
+  color: white;
+  border-radius: 5px;
+}
+
+.dropdown .dropdown-menu .dropdown-item:hover {
+  background-color: #00ab55;
+  color: white;
+  border-radius: 5px;
+}
+
+.dropdown .dropdown-menu .dropdown-item:focus,
+.dropdown .dropdown-menu .dropdown-item:active {
+  background-color: #02773c;
+  color: white;
+  border-radius: 5px;
+}
+
+.dropdown .dropdown-menu .dropdown-delete:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.dropdown .dropdown-menu .dropdown-delete:focus,
+.dropdown .dropdown-menu .dropdown-delete:active {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 5px;
+}
+
