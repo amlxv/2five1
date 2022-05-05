@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('shop_name')->nullable();
             $table->string('shop_avatar')->nullable();
-            $table->enum('type', ['seller', 'buyer', 'both'])->nullable()->default('buyer');
+            $table->enum('type', ['buyer', 'both'])->nullable()->default('buyer');
             $table->enum('role', ['admin', 'user'])->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

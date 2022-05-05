@@ -85,11 +85,11 @@
 -   password
 -   address
 -   phone
--   avatar
--   type: [buyer, seller, both, default: buyer]
+-   avatar \*
+-   type: [buyer, both, default: buyer] \*
 -   role: [user, admin, default: user]
--   shop_name
--   shop_avatar
+-   shop_name \*
+-   shop_avatar \*
 -   updated_at
 -   created_at
 
