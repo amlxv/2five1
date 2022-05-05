@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyShopController;
 use App\Http\Controllers\BecomeSellerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -23,3 +24,5 @@ Route::get('/', function () {
 Route::resource('/profile', ProfileController::class)->middleware('auth');
 
 Route::resource('/become-seller', BecomeSellerController::class)->middleware('auth');
+
+Route::resource('/shop', MyShopController::class)->middleware('auth');

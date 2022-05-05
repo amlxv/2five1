@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class BecomeSellerController extends Controller
+class MyShopController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +17,16 @@ class BecomeSellerController extends Controller
     {
         $user = User::find(Auth::user()->id);
 
-        // Check if the user already a seller
-        if ($user->type == 'both') {
-            return redirect('/shop')->withErrors([
-                'message' => 'You are already a seller.'
-            ]);
+        // Check if the user not a seller
+        if ($user->type != 'both') {
+            return redirect('/become-seller')->withErrors(
+                [
+                    'message' => 'Please apply to become a seller first.'
+                ]
+            );
         }
 
-        return view('settings.become-seller', compact('user'));
+        return view('settings.my-shop', compact('user'));
     }
 
     /**
@@ -88,7 +90,7 @@ class BecomeSellerController extends Controller
         // Validate the request
         $validated = $request->validate([
             'shop_name' => 'required|string|max:255',
-            'shop_avatar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'shop_avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         if ($request->has('shop_avatar')) {
@@ -98,12 +100,18 @@ class BecomeSellerController extends Controller
             $validated['shop_avatar'] = 'images/avatars/' . $avatar_name;
         }
 
-        // Change the user type from user to both user and seller
-        $validated['type'] = 'both';
+        // Check the request is same or not
+        if ($request->shop_name == $user->shop_name) {
+            if (!$request->has('avatar')) {
+                return back()->withErrors([
+                    'message' => 'No changes were made.'
+                ]);
+            }
+        }
 
         // Update the user
         if ($user->update($validated)) {
-            return redirect('/shop')->with('success', 'Your shop has been created.');
+            return back()->with('success', 'Your shop details have been updated.');
         }
     }
 

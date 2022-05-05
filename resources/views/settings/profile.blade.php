@@ -13,7 +13,7 @@
             <div class="rounded-circle text-center" style="height: 120px; width: 120px;">
                 <input type="file" class="d-none" name="avatar" id="avatar" aria-describedby="avatarHelp">
                 <label for="avatar">
-                    <img class="rounded-circle border"
+                    <img class="rounded-circle border border-white"
                         src="{{ !$user->avatar ? asset('images/avatars/default.png') : asset($user->avatar) }}"
                         alt="Profile Picture" style="height: 120px; width: 120px;">
                 </label>

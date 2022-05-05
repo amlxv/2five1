@@ -1,12 +1,12 @@
 @extends('layouts.settings')
 
-@section('title', 'Become a Seller')
-@section('setting-title', 'Seller Application')
-@section('setting-description', 'Apply and start selling your products')
+@section('title', 'My Shop')
+@section('setting-title', 'My Shop')
+@section('setting-description', 'Update your shop information')
 
 @section('setting-content')
 
-    <form action="{{ '/become-seller/' . Auth::user()->id }}" method="post" enctype="multipart/form-data">
+    <form action="{{ '/shop/' . Auth::user()->id }}" method="post" enctype="multipart/form-data">
 
         @csrf
         @method('PUT')

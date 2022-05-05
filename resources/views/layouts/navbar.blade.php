@@ -49,7 +49,10 @@
                             <a class="dropdown-item" href="/profile">My Account</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="#">My Purchase</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/shop">My Shop</a>
                         </li>
                         <li>
                             <form action="{{ route('logout') }}" method="post">
