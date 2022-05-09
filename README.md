@@ -94,3 +94,26 @@
 -   created_at
 
 ### Products
+
+-   id
+-   name
+-   description
+-   quantity
+-   price
+-   image
+-   category
+-   sku \*
+-   seller_id
+-   status (active/inactive)
+-   created_at
+-   updated_at
+
+### Categories
+
+-   id
+-   name
+-   image
+-   description
+-   status (active/inactive)
+-   created_at
+-   updated_at

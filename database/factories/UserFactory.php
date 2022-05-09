@@ -28,6 +28,10 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'phone' => '0123456789',
             'address' => 'Jl. Kebon Jeruk No.1',
+            'avatar' => 'images/avatars/11651727500.png',
+            'type' => 'both',
+            'shop_name' => 'XYZ Shop',
+            'shop_avatar' => 'images/avatars/11651724905.jpg',
             'remember_token' => Str::random(10),
         ];
     }

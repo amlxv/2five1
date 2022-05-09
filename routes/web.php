@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MyShopController;
 use App\Http\Controllers\BecomeSellerController;
 use App\Http\Controllers\ProfileController;
@@ -21,8 +22,11 @@ Route::get('/', function () {
     return view('marketplace');
 });
 
-Route::resource('/profile', ProfileController::class)->middleware('auth');
-
-Route::resource('/become-seller', BecomeSellerController::class)->middleware('auth');
-
-Route::resource('/shop', MyShopController::class)->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    Route::resources([
+        'profile' => ProfileController::class,
+        'become-seller' => BecomeSellerController::class,
+        'shop' => MyShopController::class,
+        'products' => ProductController::class,
+    ]);
+});

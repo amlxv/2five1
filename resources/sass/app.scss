@@ -45,6 +45,30 @@ $enable-negative-margins: true;
     color: white;
 }
 
+.bg-theme {
+    background-color: $theme-color;
+    color: white;
+    font-weight: 500;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+
+.bg-theme:hover,
+.bg-theme:active,
+.bg-theme:focus {
+    background-color: $theme-color-darker;
+    color: white;
+}
+
+.bg-theme-darker {
+    background-color: $theme-color-darker;
+    color: white;
+    font-weight: 500;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    transition: filter 0.25s ease-in-out;
+}
+
 .btn-outline-theme {
     background-color: white;
     color: $theme-color;

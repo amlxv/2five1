@@ -20578,6 +20578,30 @@ readers do not read off random characters that represent icons */
   color: white;
 }
 
+.bg-theme {
+  background-color: #00ab55;
+  color: white;
+  font-weight: 500;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.bg-theme:hover,
+.bg-theme:active,
+.bg-theme:focus {
+  background-color: #02773c;
+  color: white;
+}
+
+.bg-theme-darker {
+  background-color: #02773c;
+  color: white;
+  font-weight: 500;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+  transition: filter 0.25s ease-in-out;
+}
+
 .btn-outline-theme {
   background-color: white;
   color: #00ab55;

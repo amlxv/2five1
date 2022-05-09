@@ -70,5 +70,4 @@
             <button class="btn btn-theme px-5" type="submit">Save</button>
         </div>
     </form>
-    </div>
 @endsection

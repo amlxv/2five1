@@ -32,8 +32,13 @@
 
         <div class="row col-md rounded p-4 bg-white rounded-3 border shadow-sm">
             <div class="mb-3">
-                <h5 class="">@yield('setting-title')</h5>
-                <p class="form-text">@yield('setting-description')</p>
+                <div class="d-flex justify-content-between align-md-items-center flex-column flex-md-row">
+                    <div class="">
+                        <h5 class="">@yield('setting-title')</h5>
+                        <p class="form-text">@yield('setting-description')</p>
+                    </div>
+                    @stack('page-actions')
+                </div>
 
                 @if (!$user->email_verified_at)
                     <div class="alert alert-danger">
