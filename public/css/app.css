@@ -20623,6 +20623,10 @@ readers do not read off random characters that represent icons */
   background: linear-gradient(to right, rgba(233, 222, 250, 0.5), rgba(251, 252, 219, 0.5));
 }
 
+.bg-geometry {
+  background-image: url("/images/brands/geometry.png");
+}
+
 .dropdown .dropdown-menu {
   border-radius: 8px;
   padding: 5px;
@@ -20663,5 +20667,9 @@ readers do not read off random characters that represent icons */
   background-color: #dc3545;
   color: white;
   border-radius: 5px;
+}
+
+.description {
+  white-space: pre-wrap;
 }
 

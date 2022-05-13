@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MyShopController;
 use App\Http\Controllers\BecomeSellerController;
+use App\Http\Controllers\MarketplaceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -18,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('marketplace');
-});
+Route::redirect('/', 'marketplace', 301);
+
+Route::resource('marketplace', MarketplaceController::class);
+
+Route::get('/items/{id}/buy', [MarketplaceController::class, 'buy'])->middleware('auth')->name('buy.show');
 
 Route::middleware(['auth'])->group(function () {
     Route::resources([

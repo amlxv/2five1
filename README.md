@@ -2,20 +2,12 @@
 
 ## Modules
 
--   Public Page
-
-    -   [ ] Landing
-    -   [ ] About
-    -   [ ] Contact
-    -   [ ] Others (Please add to the checklist)
-
 -   Authentication
 
     -   [x] Sign Up
     -   [x] Sign In
     -   [x] Reset Password
     -   [x] Email Verification
-    -   [ ] Others (Please add to the checklist)
 
 -   Users
 
@@ -33,16 +25,14 @@
 
 -   Seller Dashboard
 
-    -   [ ] Manage Profile
-    -   [ ] Manage Product
-    -   [ ] Product History
-    -   [ ] Others (Please add to the checklist)
+    -   [x] Manage Profile
+    -   [x] Manage Product
 
 -   Product
 
-    -   [ ] Add Product
-    -   [ ] Update Product
-    -   [ ] Remove Product
+    -   [x] Add Product
+    -   [x] Update Product
+    -   [x] Remove Product
 
 -   Marketplace
 
@@ -115,5 +105,25 @@
 -   image
 -   description
 -   status (active/inactive)
+-   created_at
+-   updated_at
+
+### Orders
+
+-   id
+-   buyer_id
+-   product_id
+-   status (pending/completed/failed)
+-   transaction_id
+-   created_at
+-   updated_at
+
+### Transactions
+
+-   id
+-   order_id
+-   total_payment
+-   status (pending/completed/failed)
+-   payment_channel
 -   created_at
 -   updated_at

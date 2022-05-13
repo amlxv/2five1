@@ -99,6 +99,10 @@ $enable-negative-margins: true;
     );
 }
 
+.bg-geometry {
+    background-image: url("/images/brands/geometry.png");
+}
+
 // Customize the Dropdown
 
 .dropdown .dropdown-menu {
@@ -141,4 +145,8 @@ $enable-negative-margins: true;
     background-color: #dc3545;
     color: white;
     border-radius: 5px;
+}
+
+.description {
+    white-space: pre-wrap;
 }

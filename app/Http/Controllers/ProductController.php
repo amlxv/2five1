@@ -42,9 +42,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|min:14|max:255',
-            'description' => 'required|min:40|max:255',
+            'description' => 'required|min:40|max:5000',
             'category' => 'required',
             'price' => 'required|numeric|min:1',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
@@ -53,26 +53,22 @@ class ProductController extends Controller
             'status' => 'required|in:active,inactive',
         ]);
 
-        $product = new Product();
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->category = $request->category;
-        $product->price = $request->price;
-        $product->quantity = $request->quantity;
-        $product->sku = $request->sku;
-        $product->status = $request->status;
-        $product->seller_id = Auth::user()->id;
+        $validated['seller_id'] = Auth::user()->id;
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name =  Auth::user()->id . time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images/products'), $image_name);
-            $product['image'] = 'images/products/' . $image_name;
+            $validated['image'] = 'images/products/' . $image_name;
         }
 
-        $product->save();
+        $product = new Product();
 
-        return redirect()->route('products.index')->with('success', 'Product added successfully');
+        if (Product::create($validated)) {
+            return redirect()->route('products.index')->with('success', 'Product created successfully');
+        }
+
+        return redirect()->route('products.index')->withErrors(['error' => 'Something went wrong when creating the product']);
     }
 
     /**
@@ -94,7 +90,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find(Auth::user()->id);
+        $product = Product::find($id);
+        $categories = Category::all();
+        return view('settings.products-edit', compact(['user', 'product', 'categories']));
     }
 
     /**
@@ -106,7 +105,32 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|min:14|max:255',
+            'description' => 'required|min:40|max:5000',
+            'category' => 'required',
+            'price' => 'required|numeric|min:1',
+            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'quantity' => 'required|numeric|min:1',
+            'sku' => 'max:21',
+            'status' => 'required|in:active,inactive',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name =  Auth::user()->id . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/products'), $image_name);
+            $validated['image'] = 'images/products/' . $image_name;
+        }
+
+
+        $product = Product::find($id);
+
+        if ($product->update($validated)) {
+            return redirect()->route('products.index')->with('success', 'Product updated successfully');
+        }
+
+        return redirect()->route('products.index')->withErrors(['error' => 'Something went wrong when updating the product']);
     }
 
     /**
@@ -117,6 +141,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+
+        if ($product->delete()) {
+            return redirect()->route('products.index')->with('success', 'Product deleted successfully');
+        }
+
+        return redirect()->route('products.index')->withErrors(['error' => 'Something went wrong when deleting the product']);
     }
 }

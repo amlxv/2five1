@@ -16,7 +16,7 @@
         </div>
     @else
         @foreach ($products as $product)
-            <div class="mb-2">
+            {{-- <div class="mb-2">
                 <div class="card border-0">
                     <div class="card-body">
                         <div class="row justify-content-center align-items-center">
@@ -52,6 +52,29 @@
                 @if (!$loop->last)
                     <hr>
                 @endif
+            </div> --}}
+
+            <div class="mb-3">
+                <div class="d-flex align-items-center">
+                    <div class="me-4">{{ $loop->iteration }}</div>
+                    <div class=""><a class="text-dark text-decoration-none"
+                            href="{{ route('products.edit', $product->id) }}">{{ $product->name }}</a>
+                        @if ($product->status != 'active')
+                            <span class="ms-2 badge bg-danger">
+                                Drafted
+                            </span>
+                        @endif
+                        @if ($product->quantity > 0)
+                            <span class="ms-2 badge bg-success">
+                                {{ $product->quantity }} items left
+                            </span>
+                        @else
+                            <span class="ms-2 badge bg-danger">
+                                Out of stock
+                            </span>
+                        @endif
+                    </div>
+                </div>
             </div>
         @endforeach
     @endif
