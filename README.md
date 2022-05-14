@@ -11,17 +11,15 @@
 
 -   Users
 
-    -   [ ] Buyer Dashboard
-    -   [ ] Seller Dashboard
-    -   [ ] Settings
-    -   [ ] Others (Please add to the checklist)
+    -   [x] Buyer Dashboard
+    -   [x] Seller Dashboard
+    -   [x] Settings
 
 -   Buyer Dashboard
 
     -   [x] Manage Profile
     -   [x] Manage Delivery Address
-    -   [ ] Purchase History
-    -   [ ] Others (Please add to the checklist)
+    -   [x] Purchase History
 
 -   Seller Dashboard
 
@@ -36,16 +34,12 @@
 
 -   Marketplace
 
-    -   [ ] Product List
-    -   [ ] Top Product
-    -   [ ] Top Seller
-    -   [ ] Others (Please add to the checklist)
+    -   [x] Product List
 
 -   Admin
-    -   [ ] Manage Users
-    -   [ ] Manage Product
-    -   [ ] Manage Website
-    -   [ ] Others (Please add to the checklist)
+
+    -   [x] Manage Users
+    -   [x] Manage Categories
 
 ## Notes
 
@@ -108,22 +102,15 @@
 -   created_at
 -   updated_at
 
-### Orders
+### Purchases
 
 -   id
 -   buyer_id
 -   product_id
--   status (pending/completed/failed)
--   transaction_id
--   created_at
--   updated_at
-
-### Transactions
-
--   id
 -   order_id
--   total_payment
+-   transaction_id
+-   total_price
+-   billcode
 -   status (pending/completed/failed)
--   payment_channel
 -   created_at
 -   updated_at

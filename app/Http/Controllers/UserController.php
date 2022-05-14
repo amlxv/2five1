@@ -15,7 +15,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        //   
+        if (Auth::user()->role != 'admin') {
+            return abort(403);
+        }
+
+        $users = User::all();
+
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -58,7 +64,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        // 
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -70,7 +77,37 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //   
+        $user = User::findOrFail($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->type = $request->type;
+        $user->role = $request->role;
+        $user->shop_name = $request->shop_name;
+
+        if ($request->has('avatar')) {
+            $avatar = $request->file('avatar');
+            $avatar_name =  $id . time() . '.' . $avatar->getClientOriginalExtension();
+            $avatar->move(public_path('images/avatars'), $avatar_name);
+            $user->avatar = 'images/avatars/' . $avatar_name;
+        }
+
+        if ($request->has('shop_avatar')) {
+            $avatar = $request->file('shop_avatar');
+            $avatar_name =  $id . time() . '.' . $avatar->getClientOriginalExtension();
+            $avatar->move(public_path('images/avatars'), $avatar_name);
+            $user->shop_avatar = 'images/avatars/' . $avatar_name;
+        }
+
+        if ($user->save()) {
+            return redirect()->route('users.index')->with('success', 'User updated successfully');
+        }
+
+        return back()->withInput()->withErrors([
+            'error' => 'Unknown error occurred while trying to update user.'
+        ]);
     }
 
     /**

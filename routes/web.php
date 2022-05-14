@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MyShopController;
 use App\Http\Controllers\BecomeSellerController;
@@ -23,7 +25,12 @@ Route::redirect('/', 'marketplace', 301);
 
 Route::resource('marketplace', MarketplaceController::class);
 
-Route::get('/items/{id}/buy', [MarketplaceController::class, 'buy'])->middleware('auth')->name('buy.show');
+Route::get('/items/{id}/buy', [MarketplaceController::class, 'buy'])
+    ->middleware('auth')
+    ->name('buy.show');
+
+Route::get('/purchases/payment/result', [PurchaseController::class, 'paymentResult'])
+    ->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {
     Route::resources([
@@ -31,5 +38,8 @@ Route::middleware(['auth'])->group(function () {
         'become-seller' => BecomeSellerController::class,
         'shop' => MyShopController::class,
         'products' => ProductController::class,
+        'purchases' => PurchaseController::class,
+        'users' => UserController::class,
+        'categories' => CategoryController::class
     ]);
 });

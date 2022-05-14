@@ -4,25 +4,40 @@
     <div class="row px-4 py-0 py-lg-4 mt-0 mt-lg-3 mb-5 justify-content-center">
         <div class="row col-lg-2 rounded p-3 mb-4 mb-md-0 me-md-5 text-center text-lg-start">
             <div class="">
-                <a href="/profile"
+                @if (Auth::user()->role == 'admin')
+                    <div class="">
+                        <a href="{{ route('users.index') }}"
+                            class="d-block mb-3 text-nowrap {{ request()->is('users*') ? 'text-theme-darker text-decoration-underline' : 'text-decoration-none text-black' }}"><i
+                                class="fa-solid fa-users-gear me-2"></i>Users
+                            <span class="badge bg-success ms-2"><i class="fa-solid fa-wrench"></i></span>
+                        </a>
+                        <a href="{{ route('categories.index') }}"
+                            class="d-block mb-3 text-nowrap {{ request()->is('categories*') ? 'text-theme-darker text-decoration-underline' : 'text-decoration-none text-black' }}"><i
+                                class="fa-solid fa-bars-staggered me-2"></i>Categories
+                            <span class="badge bg-success ms-2"><i class="fa-solid fa-wrench"></i></span>
+                        </a>
+                        <hr>
+                    </div>
+                @endif
+                <a href="{{ route('profile.index') }}"
                     class="d-block mb-3 {{ request()->is('profile*') ? 'text-theme-darker text-decoration-underline' : 'text-decoration-none text-black' }}"><i
                         class="fa-solid fa-user me-2"></i>My
                     Account</a>
-                <a href="#"
-                    class="d-block mb-3 {{ request()->is('my-purchase*') ? 'text-theme-darker text-decoration-underline' : 'text-decoration-none text-black' }}"><i
+                <a href="{{ route('purchases.index') }}"
+                    class="d-block mb-3 {{ request()->is('purchase*') ? 'text-theme-darker text-decoration-underline' : 'text-decoration-none text-black' }}"><i
                         class="fa-solid fa-receipt me-2"></i>My
                     Purchase</a>
                 @if (Auth::user()->type == 'both')
-                    <a href="/shop"
+                    <a href="{{ route('shop.index') }}"
                         class="d-block mb-3 {{ request()->is('shop*') ? 'text-theme-darker text-decoration-underline' : 'text-decoration-none text-black' }}"><i
                             class="fa-solid fa-sack-dollar me-2"></i>My
                         Shop</a>
-                    <a href="/products"
+                    <a href="{{ route('products.index') }}"
                         class="d-block mb-3 {{ request()->is('products*') ? 'text-theme-darker text-decoration-underline' : 'text-decoration-none text-black' }}"><i
                             class="fa-solid fa-cubes me-2"></i></i>My
                         Products</a>
                 @else
-                    <a href="/become-seller"
+                    <a href="{{ route('become-seller.index') }}"
                         class="d-block mb-3 {{ request()->is('become-seller*') ? 'text-theme-darker text-decoration-underline' : 'text-decoration-none text-black' }}"><i
                             class="fa-solid fa-hand-holding-dollar me-2"></i>Apply
                         Seller</a>
@@ -40,7 +55,7 @@
                     @stack('page-actions')
                 </div>
 
-                @if (!$user->email_verified_at)
+                @if (!Auth::user()->email_verified_at)
                     <div class="alert alert-danger">
                         Your <strong>email address</strong> is not verified. Please verify your email address to continue.
 

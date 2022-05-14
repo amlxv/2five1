@@ -6,7 +6,7 @@
             <div class="me-0 me-lg-4 mb-4 mb-lg-0">
                 <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" style="height: 20rem">
             </div>
-            <div class="">
+            <div class="flex-fill">
                 <div class="mb-2">
                     <h5 class="">{{ $product->name }}</h5>
                 </div>

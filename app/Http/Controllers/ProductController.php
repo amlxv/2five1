@@ -62,8 +62,6 @@ class ProductController extends Controller
             $validated['image'] = 'images/products/' . $image_name;
         }
 
-        $product = new Product();
-
         if (Product::create($validated)) {
             return redirect()->route('products.index')->with('success', 'Product created successfully');
         }

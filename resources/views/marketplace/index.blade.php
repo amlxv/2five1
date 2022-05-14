@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="d-flex flex-wrap justify-content-center py-4">
+    <div class="d-flex flex-wrap justify-content-center pb-4">
         @foreach ($products as $product)
             <a href="{{ route('marketplace.show', $product->id) }}" class="text-decoration-none">
                 <div class="card m-2 rounded-3 overflow-hidden" style="width: 16rem;">
