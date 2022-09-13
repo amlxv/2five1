@@ -1,6 +1,8 @@
 # 2five1
 
-Coding Matrix E-Commerce Project built with Laravel 8
+Coding Matrix E-Commerce Project. Built with Laravel 8
+
+This project is only used for Coding Matrix competition. 
 
 ## Modules
 
